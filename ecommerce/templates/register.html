@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="wrapper">
+    <div class="form-box register">
+        <h2>Register</h2>
+        <form method="POST" action="#" >
+            {% csrf_token %}
+            <div class="input-box">
+                <span class="icon fa fa-user"></span>
+                <input type="text" required name="u">
+                <label>Username</label>
+            </div>
+            <div class="input-box">
+                <span class="icon fa fa-envelope"></span>
+                <input type="email" required name="p">
+                <label>Email</label>
+            </div>
+            <div class="input-box">
+                <span class="icon fa fa-lock"></span>
+                <input type="password" required name="p">
+                <label>Password</label>
+            </div>
+            <div class="input-box">
+                <span class="icon fa fa-lock"></span>
+                <input type="password" required name="p">
+                <label>Confirm Password</label>
+            </div>
+            <div class="input-box">
+                <span class="icon fa fa-phone"></span>
+                <input type="number" required name="p">
+                <label>Phone</label>
+            </div>
+            <div class="input-box">
+                <span class="icon fa fa-home"></span>
+                <input type="text" required name="p">
+                <label>Address</label>
+            </div>
+            <div class="remember-forgot">
+                    <label ><input type="checkbox">I Agree to the terms & conditions</label>
+                    <a href="#">Forgot Password ?</a>
+            </div>
+            <button type="submit" class="btn">Register</button>
+            <div class="login-register">
+                <p>Already have an account ?
+                    <a href="{% url 'shop:login' %}" class="register-link">Login</a></p>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

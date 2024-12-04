@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+{% load static %}
+<head>
+<title>Ecommerce</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="Ecommerce template project">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+<link href="http://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+<header >
+
+
+<!--<nav class="navbar navbar-expand navbar-light bg-transparent fixed-top">-->
+<!--  <div class="container-fluid">-->
+<!--    <a class="navbar-brand ">Shopeee<span>...</span></a>-->
+<!--      {% comment %} <img src="{% static 'images/Logo.png' %}" height="70px" width="70px"> {% endcomment %}-->
+<!--    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">-->
+<!--      <span class="navbar-toggler-icon"></span>-->
+<!--    </button>-->
+<!--    <div class="collapse navbar-collapse" id="navbarSupportedContent">-->
+<!--      <ul class="navbar-nav me-auto mb-2 mb-lg-0">-->
+<!--        <li class="nav-item">-->
+<!--          <a class="nav-link  " aria-current="page" href="{% url 'shop:allcat' %}">Home</a>-->
+<!--        </li>-->
+<!--        <li class="nav-item dropdown ">-->
+<!--            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">-->
+<!--            All Categories-->
+<!--            </a>-->
+<!--          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">-->
+<!--              {% for i in links %}-->
+<!--              <li><a class="dropdown-item " href="{% url 'shop:allproducts' i.name %}">{{i.name}}</a></li>-->
+<!--              {% endfor %}-->
+
+<!--          </ul>-->
+<!--        </li>-->
+<!--          {% if user.is_authenticated %}-->
+<!--          {% if user.is_superuser ==  False %}-->
+<!--          <li class="nav-item">-->
+<!--              <a class="nav-link " aria-current="page" href="{% url 'cart:cartview' %} ">Cart &nbsp;&nbsp;<b><sup>{{count}}</sup></b></a>-->
+<!--        </li>-->
+<!--          <li class="nav-item">-->
+<!--          <a class="nav-link " aria-current="page" href="{% url 'cart:orderview' %}">My Orders</a>-->
+<!--        </li>-->
+<!--          {% endif %}-->
+<!--          <li class="nav-item">-->
+<!--          <a class="nav-link " aria-current="page" href="{% url 'shop:logout' %}">Logout</a>-->
+<!--        </li>-->
+<!--          {% else %}-->
+<!--          <li class="nav-item">-->
+<!--          <a class="nav-link " aria-current="page" href="{% url 'shop:register' %}">Register</a>-->
+<!--        </li>-->
+<!--          <li class="nav-item">-->
+<!--          <a class="nav-link " aria-current="page" href="{% url 'shop:login' %}">Login</a>-->
+<!--        </li>-->
+<!--         {% endif %}-->
+<!--      </ul>-->
+<!--        <form class="d-flex ml-5 " role="search" action="{% url 'search:search' %}" method="POST">-->
+<!--            {% csrf_token %}-->
+<!--        <input class="form-control me-2 " type="search" placeholder="Search" aria-label="Search" name="q">-->
+<!--        <button class="btn btn-outline-info fa fa-search" type="submit"></button>-->
+<!--      </form>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</nav>-->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand me-auto" href="#">Shopee...</a>
+<!--      {% comment %} <img src="{% static 'images/Logo.png' %}" height="70px" width="70px"> {% endcomment %}-->
+<!--    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">-->
+<!--      <span class="navbar-toggler-icon"></span>-->
+<!--    </button>-->
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Shopee...</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
+                        <li class="nav-item">
+                            <a class="nav-link mx-lg-2 active" aria-current="page" href="{% url 'shop:allcat' %}">Home</a>
+                        </li>
+                        <li class="nav-item dropdown ">
+                            <a class="nav-link dropdown-toggle mx-lg-2 active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">All Categories</a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                {% for i in links %}
+                                <li>
+                                    <a class="dropdown-item " href="{% url 'shop:allproducts' i.name %}">{{i.name}}</a>
+                                </li>
+                                {% endfor %}
+                            </ul>
+                        </li>
+                        {% if user.is_authenticated %}
+                        {% if user.is_superuser ==  False %}
+                        <li class="nav-item">
+                            <a class="nav-link mx-lg-2 active" href="{% url 'cart:cartview' %}">Cart <b><sup>{{count}}</sup></b></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link mx-lg-2 active " href="{% url 'cart:orderview' %}">My Orders</a>
+                        </li>
+                        {% endif %}
+                        <li class="nav-item">
+                            <a class="login-button" href="{% url 'shop:logout' %}">Logout</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            {% else %}
+            <a href="{% url 'shop:login' %}" class="login-button">Sign in</a><br><br>
+            {% endif %}
+            <button class="navbar-toggler pe-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <form class="d-flex ml-5 " role="search" action="{% url 'search:search' %}" method="POST">
+                {% csrf_token %}
+                <input class="form-control me-2 " type="search" placeholder="Search" aria-label="Search" name="q">
+                <button class="btn btn-outline-info fa fa-search" type="submit"></button>
+            </form>
+        </div>
+    </nav>
+
+<!--    <nav class="navbar navbar-expand-lg fixed-top">-->
+<!--        <div class="container-fluid">-->
+<!--          <a class="navbar-brand me-auto" href="#">Shopee...</a>-->
+
+<!--          <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">-->
+<!--            <div class="offcanvas-header">-->
+<!--              <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Shopee...</h5>-->
+<!--              <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>-->
+<!--            </div>-->
+<!--            <div class="offcanvas-body">-->
+<!--              <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">-->
+<!--                <li class="nav-item">-->
+<!--                  <a class="nav-link mx-lg-2 active" aria-current="page" href="{% url 'shop:allcat' %}">Home</a>-->
+<!--                </li>-->
+<!--                <li class="nav-item">-->
+<!--                  <a class="nav-link mx-lg-2" href="#">All Category</a>-->
+<!--                </li>-->
+<!--                  {% if user.is_authenticated %}-->
+<!--                <li class="nav-item">-->
+<!--                  <a class="nav-link mx-lg-2" href="{% url 'cart:cartview' %}">Cart</a>-->
+<!--                </li>-->
+<!--                <li class="nav-item">-->
+<!--                  <a class="nav-link mx-lg-2" href="{% url 'shop:logout' %}">Logout</a>-->
+<!--                </li>-->
+<!--                  {% else %}-->
+<!--              </ul>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <a href="{% url 'shop:login' %}" class="login-button">Sign in</a><br><br>-->
+<!--          <a href="{% url 'shop:register' %}" class="login-button">Sign up</a>-->
+<!--            {% endif %}-->
+<!--          <button class="navbar-toggler pe-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">-->
+<!--            <span class="navbar-toggler-icon"></span>-->
+<!--          </button>-->
+
+<!--        </div>-->
+<!--      </nav>-->
+</header>
+{% block content %}
+
+
+
+{% endblock %}
+<footer class="footer fixed-bottom">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="newsletter">
+                    <div class="newsletter_title_container text-center">
+                        <div class="newsletter_title">Subscribe to our newsletter to get the latest trends & news</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col text-center ">
+Copyright &copy;<script>document.write(new Date().getFullYear());</script>Shopeee.. All rights reserved</div>
+</footer>
+</body>
+</html>

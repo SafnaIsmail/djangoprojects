@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+<html lang="en">
+{% block content %}
+<div class="container-fluid mt-5" >
+    <div>
+        <h3 class="text-center">{{m}}</h3>
+        <h3 class="text-center">thankyou</h3>
+        <h3 class="text-center"><a href="{% url 'shop:allcat' %}">continue shopping</a></h3>
+    </div>
+</div>
+{% endblock %}
+</html>

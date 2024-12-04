@@ -1,0 +1,355 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    outline: none; border: none;
+    text-decoration: none;
+    transition: .2s linear;
+    
+}
+html{
+    overflow-x: hidden;
+}
+body{
+    background-color:#fff;
+}
+.navbar{
+    background-color: #fff;
+    height: 80px;
+    margin: 20px;
+    border-radius: 16px;
+    padding: 0.5rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .5);
+}
+.navbar-brand{
+    font-weight: 1000;
+    color: #000;
+    font-size: 24px;
+    transition: 0.3s color;
+}
+.login-button{
+    background: transparent;
+    color: #000;
+    font-size: 1.1rem;
+    border: 2px solid #000;
+    border-radius: 10px;
+    outline: none;
+    text-decoration: none;
+    cursor: pointer;
+    margin-left: 40px;
+    font-weight: 500;
+    transition: .5s;
+    align-item: center;
+}
+.login-button:hover{
+    background: #000;
+    color: #fff;
+}
+.navbar-toggler{
+    border: none;
+    font-size: 1.25rem;
+}
+.navbar-toggler:focus, .btn-close:focus{
+    box-shadow: none;
+    outline: none;
+}
+
+.nav-item a{
+    position: relative;
+    font-size: 1.1rem;
+    margin-left: 40px;
+    color: rgb(41, 40, 40);
+    font-weight: 500;
+}
+.nav-item a::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 3px;
+    background: #424141;
+    border-radius: 5px;
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform .5s;
+}
+.nav-item a::hover::after{
+    transform-origin: left;
+    transform: scaleX(1);
+}
+
+
+.home{
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.6);
+    content: "";
+    position: relative;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+.home .container{
+    height: 100vh;
+    z-index: 1;
+    position: right;
+    max-width: 50rem;
+}
+.home h4{
+    font-size: 1.5rem;
+    font-family: cursive;
+    color: rgb(202, 229, 255);
+
+}
+.home h2{
+    font-size: 2.5rem;
+    font-weight: 750;
+}
+.home p{
+    font-size: 1.2rem;
+}
+
+.about{
+    background-size: cover;
+    width: 100%;
+    max-width: 1170px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 50px;
+    overflow-x: hidden;
+    padding: 5rem 0;
+    justify-content: center;
+    align-items: center;
+    margin-left: 190px;
+    border: 5px solid rgba(12, 6, 6, 0.5);
+    border-radius: 20px;
+    margin-top: 3rem;
+
+}
+.about .imgwrapper{
+    margin-left: 100px;
+    overflow: hidden;
+}
+.about .imgwrapper img{
+    width: 90%;
+    height: 90%;
+    object-fit: cover;
+    transition: 0.3s;
+}
+.about .imgwrapper:hover img{
+    transform: scale(1.25);
+}
+.about .about-contentwrapper{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 20px;
+    padding-right: 20px;
+    text-align: justify;
+}
+.about .about-contentwrapper span.at-textwrapper{
+    display: block;
+    font-size: 20px;
+    text-transform: capitalize;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 15px;
+    padding-bottom: 20px;
+}
+.about .about-contentwrapper span.at-textwrapper span{
+    display: inline-block;
+    background: rgb(15, 17, 19);
+    width: 90px;
+    height: 4px;
+}
+.about .about-contentwrapper h2{
+    font-size: 40px;
+    font-weight: 700;
+    color: rgb(29, 27, 27);
+    padding-bottom: 20px;
+}
+.about .about-contentwrapper p{
+    font-size: 16px;
+    line-height: 25px;
+    padding-bottom: 25px;
+}
+
+.card-container{
+    padding:3rem;
+    margin-left: 9rem;
+}
+.card-img-top{
+    border-radius: 40px;
+    padding: 12px;
+    width: 19.7rem;
+    height: 14rem;
+    margin-left: 1px;
+}
+.card{
+    border-radius: 25px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, .5);
+}
+.card-body{
+    padding: 20px;
+    margin-top: -15px;
+    text-align: justify;
+}
+.btn-primary{
+    border-radius: 50px;
+    width: 100px;
+}
+.btn-primary:hover{
+    background-color: black;
+}
+.card-title{
+    font-style: oblique;
+    font-weight: 600;
+    text-align: center;
+}
+h5{
+    color: rgb(27, 68, 80);
+    padding: 10px;
+}
+
+
+
+.wrapper{
+    position: relative;
+    width: 400px;
+    height: 440px;
+    border: 2px solid rgba(12, 6, 6, 0.5);
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    margin-top:8rem;
+    margin-left:35rem;
+}
+
+.wrapper .form-box{
+    width: 100%;
+    padding: 40px;
+}
+
+
+.wrapper .form-box.register{
+    position: absolute;
+    transition: none;
+    transform: translateX(400px);
+}
+
+.form-box h2{
+    font-size: 2rem;
+    color: #d3caca;
+    text-align: center;
+}
+.input-box{
+    position: relative;
+    width: 100%;
+    height: 50px;
+    border-bottom: 2px solid #162918;
+    margin: 30px 0;
+}
+.input-box label{
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    font-size: 1rem;
+    color: #717171;
+    font-weight: 500;
+    pointer-events: none;
+    transition: .5s;
+}
+.input-box input:focus~label,
+.input-box input:valid~label{
+    top: -5px;
+}
+.input-box input{
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    color: #162918;
+    font-weight: 600;
+    padding: 0 35px 0 5px;
+}
+.input-box .icon{
+    position: absolute;
+    right: 8px;
+    font-size: 1.2em;
+    color: #000;
+    line-height: 57px;
+}
+.remember-forgot{
+    font-size: .9em;
+    color: #000;
+    font-weight: 500;
+    margin: -15px 0 15px;
+    display: flex;
+    justify-content: space-between;
+}
+.remember-forgot label input{
+    accent-color: #000;
+    margin-right: 3px;
+}
+.remember-forgot a{
+    color: #000;
+    text-decoration: none;
+}
+.remember-forgot a:hover{
+    text-decoration: underline;
+}
+.btn{
+    width: 100%;
+    height: 45px;
+    background: #d3caca;
+    border: none;
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    color: #162918;
+}
+.login-register{
+    font-size: .9em;
+    color: #d3caca;
+    text-align: center;
+    font-weight: 500;
+    margin: 25px 0 10px;
+}
+.login-register p a {
+    color: #d3caca;
+    text-decoration: none;
+    font-weight: 600;
+}
+.login-register p a:hover{
+    text-decoration: underline;
+}
+.footer{
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .5);
+    height: 60px;
+    margin: 20px;
+    border-radius: 16px;
+    padding: 0.5rem;
+}
+.newsletter-title {
+    color: rgb(41, 40, 40);
+    font-weight: 700;
+}
+.col{
+    color: rgb(41, 40, 40);
+    font-weight: 700;
+}

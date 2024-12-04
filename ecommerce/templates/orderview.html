@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+{% extends 'base.html' %}
+{% load static %}
+<html lang="en">
+{% block content %}
+
+<div class="container">
+        <h1 class="text-center" style="margin:30px;">My Orders</h1>
+    <h3  style="margin:30px;">Customer Name:{{u}}</h3>
+        <div class="row row-cols-1 row-cols-md-3 g-4 py-5" style="padding: 0;
+    margin: 0;
+    box-sizing: border-box;">
+            <div class="col">
+                {% for i in o %}
+                <div class="card" style="width: 25rem; border-radius: 25px;">
+                    <img src="{{i.product.image.url}}" class="card-img-top" alt="..." style="border-radius: 40px; padding: 12px;">
+                    <div class="card-body" style="padding: 20px; margin-top: -15px; text-align: justify; font-style: oblique; font-weight: 600;">
+                        <p class="card-text">Product Name:{{i.product.name}}</p>
+                        <p class="card-text">Product Price:{{i.product.price}}</p>
+                        <p class="card-text">Ordered On:{{i.date_ordered}}</p>
+                        <p class="card-text">Delivery Address:{{i.address}}</p>
+                        <p class="card-text">Delivery phone:{{i.phone}}</p>
+                        <p class="card-text">Number of items:{{i.noofitems}}</p>
+                        <p class="card-text">Delivery Status:{{i.delivery_status}}</p>
+                    </div>
+                    <div class="d-flex justify-content-around mb-3" >
+                        <button class="btn btn-primary" style="border-radius: 30px; width: 250px;">Buy Again</button>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+</div>
+{% endblock %}
+</html>

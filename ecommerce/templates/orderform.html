@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container-fluid mt-3">
+    <h4>enter your details</h4>
+    <form method="POST">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label class="form-label">Address</label>
+            <input type="text" class="form-control" name="a" placeholder="enter your address">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Phone</label>
+            <input type="number" class="form-control" name="p" placeholder="enter your number">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Account number</label>
+            <input type="text" class="form-control" name="n" placeholder="enter your account number">
+        </div>
+        <div class="mb-3">
+            <input type="submit" class="form-control">
+        </div>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+<html lang="en">
+{% block content %}
+<!--<div class="container ">-->
+<!--    <div class="row">-->
+<!--        <div class="col-sm-4">-->
+<!--            <img src="{{p.image.url}}" height="400px" width="400px">-->
+<!--        </div>-->
+<!--        <div class="col-sm-5">-->
+<!--            <h4 class="mt-1">{{p.name}}</h4>-->
+<!--            <h5 class="mt-1">-/ {{p.price}} /-</h5>-->
+<!--            {{p.stock}}-->
+<!--            <p class="mt-2" style="text-indend:20px; line-height:2; text-align:justify;">{{p.desc}}</p>-->
+<!--            {% if user.is_superuser == False %}-->
+<!--            {% if p.stock <= 0 %}-->
+<!--            <h4>Out of Stock</h4>-->
+<!--            {% else %}-->
+<!--            <h4><a href="{% url 'cart:addtocart' p.name %}" class="btn btn-secondary mt-1 fa fa-shopping-cart">Add to Cart</a></h4>-->
+<!--            {% endif %}-->
+<!--            {% else %}-->
+<!--            {% if p.stock <= 0 %}-->
+<!--            <h4>Out of Stock</h4>-->
+<!--            <h4><a href="{% url 'admin:index' %}" class="btn btn-secondary mt-1 fa fa-shopping-cart">Add Stock</a></h4>-->
+<!--            {% else %}-->
+<!--            <h4>Product in Stock</h4>-->
+<!--            <h4><a href="{% url 'admin:index' %}" class="btn btn-secondary mt-1 fa fa-shopping-cart">Add Stock</a></h4>-->
+<!--            {% endif %}-->
+<!--            {% endif %}-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+<div class="about">
+    <div class="imgwrapper">
+        <img src="{{p.image.url}}"alt="">
+    </div>
+    <div class="about-contentwrapper">
+        <div class="content">
+            <span class="at-textwrapper">
+                {{p.name}}<br><br>
+                -/ {{p.price}} /-
+            </span>
+            <p>{{p.desc}}</p>
+            {% if user.is_superuser == False %}
+            {% if p.stock <= 0 %}
+            <h4>Out of Stock</h4>
+            {% else %}
+            <a href="{% url 'cart:addtocart' p.name %}" class="btn ">ADD TO CART</a>
+            {% endif %}
+
+            {% else %}
+
+            {% if p.stock <= 0 %}
+            <h4>Out of Stock</h4>
+            <h4><a href="{% url 'admin:index' %}" class="btn btn-secondary mt-1 fa fa-shopping-cart">Add Stock</a></h4>
+            {% else %}
+            <h4>Product in Stock</h4>
+            <h4><a href="{% url 'admin:index' %}" class="btn btn-secondary mt-1 fa fa-shopping-cart">Add Stock</a></h4>
+            {% endif %}
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}
+</html>

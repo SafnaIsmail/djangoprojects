@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="home" id="home" style="background-image:url('{% static 'images/homee.jpg' %}') ">
+
+  <div class="container d-flex align-items-center justify-content-center fs-1 text-white flex-column">
+    <h4>Gift Special</h4>
+      <h2>Like You Mean It.</h2>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id ab beatae optio eveniet! Voluptatum voluptate laboriosam optio molestiae! Earum, fugiat!</p>
+  </div>
+</div>
+
+<!--{% comment %} <div class="about" style=" max-width:500;">-->
+<!--<div class="card mb-3 mt-3" style="max-width: 1200px; margin-left:150px; ">-->
+<!--  <div class="row g-0"style="align-items:center;">-->
+<!--    <div class="col-md-4">-->
+<!--&lt;!&ndash;      <img src="{% static 'images/aboutt.jpg' %}" class="img-fluid rounded-start" alt="..." style="height:400px;">&ndash;&gt;-->
+<!--    </div>-->
+<!--    <div class="col-md-8">-->
+<!--      <div class="card-body">-->
+<!--        <h5 class="card-title">About Us</h5>-->
+<!--        <p class="card-text"> Quam quidem delectus cum excepturi-->
+<!--                officiis temporibus eveniet fugiat soluta magnam vero distinctio rerum culpa, sequi asperiores-->
+<!--                explicabo consequuntur sint impedit necessitatibusa little bit longer.</p>-->
+
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+<!--</div> {% endcomment %}-->
+
+<div class="about">
+    <div class="imgwrapper">
+        <img src='{% static "images/about-3.jpg" %}' alt="">
+    </div>
+    <div class="about-contentwrapper">
+        <div class="content">
+            <span class="at-textwrapper">
+                <span></span>Simply Amazing Gifts
+            </span>
+            <h2>About Us</h2>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Inventore, aperiam! Facilis ab, ipsa earum,
+                    natus vero aliquam rerum tempore voluptas ullam iure sunt rem culpa eveniet, a praesentium quae vitae. Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus iusto odio, tenetur explicabo ad eligendi consequuntur, labore dolor impedit, unde consequatur consectetur eveniet asperiores perferendis et provident? Suscipit, natus error.</p>
+            <a href="#" class="btn">learn more</a>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="card-container ">
+    <h1 class="card-heading text-center">Our Products</h1>
+    <div class="row row-cols-1 row-cols-md-3 g-4 py-5">
+        {% for i in c %}
+        <div class="col">
+            <div class="card" style="width: 20rem">
+                <img src="{{i.image.url}}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h6 class="card-title">{{i.name}}</h6>
+<!--                    <p class="card-text">{{ i.desc }}</p>-->
+                </div>
+                <div class="d-flex justify-content-around mb-3">
+                    <a href="{% url 'shop:allproducts' i.name %}" class="btn btn-primary ">Explore</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+        
+
+<!--				&lt;!&ndash; Why item &ndash;&gt;-->
+<!--				{% for i in c %}-->
+<!--				<div class="col-lg-4 why_col" style=" margin-bottom:100px;  ">-->
+<!--					<div class="why_item align-items-center justify-content-center" style="background-color:white; ">-->
+<!--						<div class="why_image ">-->
+<!--							<img src='{{i.image.url}}' alt="" height="250px" width="350px">-->
+<!--							<div class="why_icon d-flex flex-column ">-->
+<!--&lt;!&ndash;								<img src='{% static "images/why_1.svg" %}' alt="">&ndash;&gt;-->
+
+
+<!--						<div class="why_content text-center" style="width:350px;">-->
+<!--							<div class="why_title" style="text-align:center;">{{i.name}}-->
+<!--							<div class="why_text" >-->
+<!--								<p style=" text-align:justify;">{{ i.desc }}</p>-->
+<!--                                <a href="{% url 'shop:allproducts' i.name %}" class="btn btn-primary fa fa-button">Explore</a>-->
+
+<!--                        </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                            </div>-->
+<!--						</div>-->
+<!--					</div>-->
+<!--				</div>-->
+<!--				{% endfor %}-->
+<!--            </div>-->
+<!--        </div>-->
+<!--</div>-->
+{% endblock %}
